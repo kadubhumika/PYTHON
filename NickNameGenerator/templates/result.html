@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Nickname</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Nickname:</h1>
+        <p class="nickname">{{ nickname }}</p>
+        <button onclick="copyText('{{nickname}}')">Copy Name</button>
+
+
+
+
+        <h1>Your Random Crush Name:</h1>
+        <p class="crushname">{{ crush }}</p>
+        <button onclick="copyText('{{crush}}')">Copy Name</button>
+        <a href="{{ url_for('index') }}">Generate Again</a>
+    </div>
+
+    <script>
+        function copyText() {
+            navigator.clipboard.writeText(document.querySelector(".nickname").innerText);
+            alert("Nickname copied!");
+        }
+    </script>
+</body>
+</html>
